@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Marketing Scorecard | Media Buy Trio</title>
+<meta name="description" content="How strong is your marketing? Take the free 2-minute scorecard and get an instant score across your website, social, branding, content, ads, SEO and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap">
+<link rel="icon" type="image/png" href="logo-brand.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="main-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">MB<span class="logo-accent">T</span></a>
+    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="scorecard.html" class="active nav-highlight">Scorecard</a></li><li><a href="process.html">Process</a></li><li><a href="portfolio.html">Portfolio</a></li></ul>
+    <a href="quote.html" class="nav-cta">Get a Quote</a>
+    <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="scorecard.html">Scorecard</a><a href="process.html">Process</a><a href="portfolio.html">Portfolio</a><a href="quote.html" class="mob-cta">Get a Quote</a></div>
+<div class="page-body">
+
+<div class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="page-breadcrumb"><a href="index.html">Home</a> / Free Marketing Scorecard</div>
+    <h1 class="page-title fade-up">How Strong Is <span class="accent">Your Marketing?</span></h1>
+    <p class="page-desc fade-up">Answer 8 quick questions about your brand's website, social, branding, content, ads, and SEO — get an instant score and a clear next step.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="scorecard-wrap">
+    <div class="scorecard-panel">
+
+      <div class="sc-progress"><div class="sc-progress-bar" id="sc-progress-bar"></div></div>
+
+      <!-- Step 1: Intro -->
+      <div class="sc-step active" id="sc-intro">
+        <div class="sc-intro">
+          <div class="sc-intro-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+          </div>
+          <h2>How Strong Is Your Marketing?</h2>
+          <p>Take our free 2-minute assessment and get an instant Marketing Score across the areas that matter most for a growing fashion brand — plus practical next steps.</p>
+          <div class="sc-areas">
+            <span class="sc-area-chip">Website</span>
+            <span class="sc-area-chip">Social Media</span>
+            <span class="sc-area-chip">Branding</span>
+            <span class="sc-area-chip">Content</span>
+            <span class="sc-area-chip">Advertising</span>
+            <span class="sc-area-chip">SEO</span>
+            <span class="sc-area-chip">Conversion</span>
+            <span class="sc-area-chip">Overall Presence</span>
+          </div>
+          <button type="button" class="btn-main" id="sc-start-btn">Get My Free Score →</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Questions -->
+      <div class="sc-step" id="sc-quiz">
+        <div class="sc-qhead">
+          <span class="sc-qcount" id="sc-qcount">Question 1 of 8</span>
+          <span class="sc-qcat" id="sc-qcat">Website</span>
+        </div>
+        <h3 class="sc-question" id="sc-question"></h3>
+        <div class="sc-options" id="sc-options"></div>
+        <div class="sc-nav">
+          <button type="button" class="sc-back" id="sc-back" style="visibility:hidden">← Back</button>
+          <button type="button" class="sc-next" id="sc-next">Next →</button>
+        </div>
+      </div>
+
+      <!-- Step 3a: Lead capture -->
+      <div class="sc-step" id="sc-lead">
+        <div class="sc-lead">
+          <h3>Where should we send your score?</h3>
+          <p>Enter your details and we'll save your results so our team can walk you through them.</p>
+          <input type="text" id="sc-name" placeholder="Your name" autocomplete="name">
+          <input type="email" id="sc-email" placeholder="Email address" autocomplete="email">
+          <input type="text" id="sc-brand" placeholder="Brand name / website (optional)">
+          <input type="text" id="sc-phone" placeholder="Contact number (optional)" autocomplete="tel">
+          <div class="sc-lead-err" id="sc-lead-err"></div>
+          <button type="button" class="btn-main" id="sc-lead-submit">See My Score &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Loading -->
+      <div class="sc-step" id="sc-loading">
+        <div class="sc-loading">
+          <div class="sc-spinner"></div>
+          <p style="color:var(--muted);font-weight:600">Calculating your marketing score…</p>
+        </div>
+      </div>
+
+      <!-- Step 4: Results -->
+      <div class="sc-step" id="sc-results">
+        <div class="sc-score-ring">
+          <svg width="180" height="180" viewBox="0 0 180 180">
+            <circle class="sc-score-track" cx="90" cy="90" r="78"></circle>
+            <circle class="sc-score-fill" id="sc-score-fill" cx="90" cy="90" r="78"></circle>
+          </svg>
+          <div class="sc-score-num"><span class="n" id="sc-score-number">0</span><span class="d">OUT OF 100</span></div>
+        </div>
+        <div class="sc-verdict" id="sc-verdict">Building Momentum</div>
+        <div class="sc-verdict-sub">Here's how your brand scores across each area</div>
+
+        <div class="sc-cats" id="sc-cats"></div>
+
+        <div class="sc-results-grid">
+          <div class="sc-result-card strengths">
+            <h4>✓ Strengths</h4>
+            <ul id="sc-strengths"></ul>
+          </div>
+          <div class="sc-result-card improve">
+            <h4>→ Areas To Improve</h4>
+            <ul id="sc-improve"></ul>
+          </div>
+        </div>
+
+        <div class="sc-cta-box">
+          <p>Want a clear plan to close these gaps? We'll walk through your score on a free call and show you exactly where the opportunity is.</p>
+          <a href="quote.html" class="btn-main">Get a Free Consultation →</a>
+        </div>
+        <a href="#" class="sc-restart" id="sc-restart-btn">Retake the scorecard</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand">
+      <a href="index.html" class="footer-logo-lockup">
+        <img src="logo-brand.png" alt="Media Buy Trio logo" class="footer-logo-img">
+        <span class="nav-logo">MEDIA BUY <span class="logo-accent">TRIO</span></span>
+      </a>
+      <p>Your one stop marketing solution — performance marketing, content, and web development for women's clothing brands across Pakistan.</p>
+    </div>
+
+    <div class="footer-col footer-contact">
+      <h4>GET IN TOUCH</h4>
+      <div class="footer-social-links">
+        <a href="mailto:mediabuytrio@gmail.com" class="footer-icon-link">
+          <img src="icons/mail.jpg" alt="Email" class="footer-icon">
+          <span>mediabuytrio@gmail.com</span>
+        </a>
+        <a href="https://www.instagram.com/mediabuytrio_" target="_blank" rel="noreferrer" class="footer-icon-link">
+          <img src="icons/instagram.jpg" alt="Instagram" class="footer-icon">
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61581174561886" target="_blank" rel="noreferrer" class="footer-icon-link">
+          <img src="icons/facebook.jpg" alt="Facebook" class="footer-icon">
+          <span>Facebook</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Media Buy Trio &middot; All rights reserved. Based in Karachi &middot; Serving brands across Pakistan.</div>
+    <div class="footer-bottom-links">
+      <a href="quote.html">Contact</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+<script src="scorecard.js"></script>
+</body>
+</html>
