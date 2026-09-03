@@ -173,8 +173,8 @@
       var r = ph.getBoundingClientRect();
       if (r.bottom < -200 || r.top > vh + 200) return;
       var p = (r.top + r.height/2 - vh/2) / vh;
-      ph.style.setProperty('--pf', (p * -18).toFixed(2) + 'px');
-      ph.style.marginTop = (p * -18).toFixed(2) + 'px';
+      ph.style.setProperty('--pf', '0px');
+      ph.style.marginTop = '0px';
     });
     ticking = false;
   }
@@ -182,7 +182,7 @@
     if (!ticking){ ticking = true; requestAnimationFrame(frame); }
   }, {passive:true});
   frame();
-
+ 
   /* Pointer tilt on each phone mockup */
   phones.forEach(function(ph){
     var wrap = ph.closest('.story-visual-wrap');
@@ -191,11 +191,11 @@
       var r = wrap.getBoundingClientRect();
       var x = (e.clientX - r.left) / r.width - .5;
       var y = (e.clientY - r.top) / r.height - .5;
-      ph.style.transform = 'translateX(-50%) rotateY(' + (x*10).toFixed(2) + 'deg) rotateX(' + (-y*8).toFixed(2) + 'deg)';
+      ph.style.transform = 'translateX(-50%) translateY(0) rotateY(' + (x*10).toFixed(2) + 'deg) rotateX(' + (-y*8).toFixed(2) + 'deg)';
       ph.style.animation = 'none';
     });
     wrap.addEventListener('mouseleave', function(){
-      ph.style.transform = 'translateX(-50%)';
+      ph.style.transform = 'translateX(-50%) translateY(0)';
       ph.style.animation = '';
     });
   });
