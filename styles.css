@@ -939,3 +939,154 @@ h2.section-title .accent,.case-title .accent,.step-num{background-size:200% 100%
 .sc-lead input:focus{outline:none;border-color:var(--orange)}
 .sc-lead .sc-lead-err{color:#e53e3e;font-size:12px;min-height:16px;margin-bottom:.4rem}
 .sc-lead-skip{display:inline-block;margin-top:.9rem;font-size:13px;color:var(--muted);text-decoration:underline;cursor:pointer}
+
+
+/* ============================================================
+   PORTFOLIO TITLE / PHONE OVERLAP FIX
+   Keep every brand title completely above its phone mockup.
+   The title owns its own vertical space; the phone is positioned
+   only inside the visual wrapper below it.
+   ============================================================ */
+
+.portfolio-story .story-block{
+  position:relative;
+  overflow:visible;
+}
+
+.portfolio-story .portfolio-brand-title{
+  position:relative;
+  display:block;
+  width:100%;
+  margin:0;
+  padding:52px 18px 30px;
+  text-align:center;
+  box-sizing:border-box;
+  z-index:20;
+  color:#1769AA;
+  -webkit-text-fill-color:#1769AA;
+  -webkit-text-stroke:0;
+  font-family:var(--font-head,'Manrope',sans-serif);
+  font-size:clamp(1.7rem,5vw,3.2rem);
+  font-weight:600;
+  line-height:1.12;
+  letter-spacing:-1.2px;
+  white-space:normal;
+  overflow:visible;
+}
+
+/* Start the image/phone area only after the title has finished. */
+.portfolio-story .story-visual-wrap{
+  position:relative;
+  display:block;
+  width:100vw;
+  left:50%;
+  transform:translateX(-50%);
+  margin:0;
+  padding-top:0 !important;
+  overflow:visible;
+}
+
+/* Phone begins at the top of its own visual area — never in title space. */
+.portfolio-story .story-phone{
+  top:0 !important;
+  z-index:5;
+}
+
+/* Keep the phone animation from translating it upward into the title. */
+.portfolio-story .story-block.visible .story-phone{
+  transform:translateX(-50%) translateY(0) rotateX(0);
+}
+
+/* Prevent the floating animation from crossing into the title area. */
+@keyframes portfolioPhoneFloatSafe{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(-8px)}
+}
+.portfolio-story .story-block.visible .story-phone{
+  animation:portfolioPhoneFloatSafe 6s ease-in-out 1.2s infinite;
+}
+
+@media(max-width:640px){
+  .portfolio-story .portfolio-brand-title{
+    padding:42px 14px 26px;
+    margin:0;
+    font-size:clamp(1.65rem,7.5vw,2.5rem);
+    line-height:1.12;
+    letter-spacing:-1px;
+  }
+
+  .portfolio-story .story-visual-wrap{
+    padding-top:0 !important;
+  }
+
+  .portfolio-story .story-phone{
+    top:0 !important;
+  }
+}
+
+/* ===== PORTFOLIO STORY: realistic phone frame + safe spacing ===== */
+/* The phone overhangs the banner on top and bottom; the wrapper reserves
+   that overhang with padding so nothing ever collides with a title. */
+.portfolio-story .story-visual-wrap{
+  padding-top:clamp(64px,8vw,120px) !important;
+  padding-bottom:clamp(100px,11vw,165px);
+}
+
+.portfolio-story .story-phone{
+  top:0 !important;
+  width:clamp(200px,21vw,278px);
+  padding:10px;
+  background:linear-gradient(160deg,#2a2c31 0%,#0c0d10 40%,#17181c 100%);
+  border-radius:44px;
+  box-shadow:0 0 0 2px #3a3d44,0 30px 65px rgba(0,0,0,.42);
+}
+/* speaker / notch pill */
+.portfolio-story .story-phone::before{
+  content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);
+  width:32%;height:6px;border-radius:99px;background:#0a0a0c;z-index:4;
+}
+/* home indicator */
+.portfolio-story .story-phone::after{
+  content:"";position:absolute;bottom:9px;left:50%;transform:translateX(-50%);
+  width:32%;height:4px;border-radius:99px;background:rgba(255,255,255,.55);z-index:4;
+}
+
+.portfolio-story .story-phone-inner{
+  aspect-ratio:9/19.5;
+  overflow:hidden;
+  border-radius:36px;
+  background:#fff;
+}
+.portfolio-story .story-phone-inner img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+}
+
+/* Uniform rhythm between brands. */
+.portfolio-story .story-block{
+  margin:0 0 3rem !important;
+}
+.portfolio-story .story-block:last-child{
+  margin-bottom:1rem !important;
+}
+
+/* Title always paints above the previous block's phone. */
+.portfolio-story .portfolio-brand-title{
+  z-index:30;
+  background:var(--bg,#fff);
+}
+
+@media(max-width:640px){
+  .portfolio-story .story-phone{width:clamp(150px,42vw,196px);padding:8px;border-radius:34px}
+  .portfolio-story .story-phone-inner{border-radius:27px}
+  .portfolio-story .story-phone::before{top:14px;height:5px}
+  .portfolio-story .story-visual-wrap{
+    padding-top:clamp(48px,10vw,80px) !important;
+    padding-bottom:clamp(120px,30vw,190px);
+  }
+  .portfolio-story .story-block{margin-bottom:2rem !important}
+}
+
